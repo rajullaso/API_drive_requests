@@ -1,0 +1,43 @@
+.schedule {
+    width: 100%;
+    margin: auto
+}
+
+.cont {
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.col-8 p {
+    font-size: 12px;
+    margin-bottom: 23px
+}
+
+.dropdownb {
+    margin-bottom: 30px
+}
+
+.table th {
+    text-align: center;
+}
+
+.table td {
+    width: 300px
+}
+
+#row {
+    height: 150px;
+    padding: 10px 0px 10px 0px
+}
+
+#class {
+    width: 140px
+}
+
+#title {
+    padding-right: 0px
+}
+
+.contentInfo {
+    padding-left: 0px;
+}

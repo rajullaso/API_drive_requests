@@ -1,0 +1,2210 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Plataforma CEV</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="robots" content="all,follow">
+	<!-- Bootstrap CSS-->
+	<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+	<!-- Font Awesome CSS-->
+	<link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+	<!-- icon font-->
+	<link rel="stylesheet" href="css/fontastic.css">
+	<!-- Google fonts - Roboto -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+	<!-- jQuery Circle-->
+	<link rel="stylesheet" href="css/grasp_mobile_progress_circle-1.0.0.min.css">
+	<!-- Personalizar Scrollbar-->
+	<link rel="stylesheet" href="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
+	<!-- Estilo css stylesheet-->
+	<link rel="stylesheet" href="css/style.default.premium.css" id="theme-stylesheet">
+	<!--  stylesheet personalizado - para cambios-->
+	<link rel="stylesheet" href="css/custom.css">
+	<!-- Favicon-->
+	<link rel="shortcut icon" href="img/favicon.ico">
+	<link rel="stylesheet" href="css/schedule.css">
+
+</head>
+
+<body>
+	<!-- Barra de navegación lateral -->
+	<nav class="side-navbar">
+		<div class="side-navbar-wrapper">
+			<!-- Cabecera de barra navegación lateral    -->
+			<div class="sidenav-header d-flex align-items-center justify-content-center">
+				<!-- Información de usuario-->
+				<div class="sidenav-header-inner text-center"><a href="pages-profile.html"><img src="img/avatar-7.jpg" alt="person" class="img-fluid rounded-circle"></a>
+          <p style="margin-bottom: 0px !important; font-size: 12px" class="p" id="nombre"></p>
+          <p style="margin-bottom: 0px !important; font-size: 12px" id="email"></p>
+          <span id="nombre">desarrollador WEB</span>
+        </div>
+        <!-- botón de minimizar barra de navegación lateral-->
+        <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center">
+            <strong>C</strong><strong>E</strong><strong class="text-primary">V</strong></a></div>
+      </div>
+      <!-- Enlaces de la barra de navegación lateral-->
+      <div class="main-menu">
+        <h5 class="sidenav-heading">Principal</h5>
+        <ul id="side-main-menu" class="side-menu list-unstyled">
+          <li><a id="get-prof" onclick="main()" href="#"> <i class="icon-home"></i>Gestión en panel </a></li>
+          <li><a onclick="schedule()" id="get-sche" href="#"> <i class="icon-grid"></i>Horario</a></li>
+          <li><a onclick="gradesTab()" id="grad" href="#"> <i class="icon-grid"></i>Notas</a></li>
+          <li><a onclick="calendar()" id="get-cal" href="#"> <i class="icon-grid"></i>Calendario</a></li>
+          <li><a href="#tablesDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-padnote"></i>Eventos
+            </a>
+            <ul id="tablesDropdown" class="collapse list-unstyled ">
+              <li><a href="tables.html">Evento profesores</a></li>
+              <li><a href="tables-datatable.html">Eventos alumnos</a></li>
+            </ul>
+          </li>
+          <li><a href="#componentsDropdown" aria-expanded="false" data-toggle="collapse"> <i
+                class="icon-page"></i>Ofertas de trabajo </a>
+            <ul id="componentsDropdown" class="collapse list-unstyled ">
+              <li><a href="components-cards.html">Desarrollador Front-End</a></li>
+              <li><a href="components-calendar.html">Desarrollador Back-End</a></li>
+
+            </ul>
+          </li>
+          <li><a href="#pagesDropdown" aria-expanded="false" data-toggle="collapse"> <i
+                class="icon-interface-windows"></i>Notificaciones </a>
+            <ul id="pagesDropdown" class="collapse list-unstyled ">
+              <li><a href="pages-contacts.html">De Profesores</a></li>
+              <li><a href="pages-invoice.html">De Alumnos</a></li>
+              <li><a href="login.html">De servicio técnico</a></li>
+
+            </ul>
+          </li>
+          <li> <a href="#"> <i class="icon-mail"></i>Noticias
+              <div class="badge badge-warning">6 New</div></a></li>
+        </ul>
+      </div>
+      <div class="admin-menu">
+        <h5 class="sidenav-heading">Otras opciones</h5>
+        <ul id="side-admin-menu" class="side-menu list-unstyled">
+          <li> <a href="#"> <i class="icon-screen"> </i>Mapa ubicación CEV</a></li>
+          <li> <a href="#"> <i class="icon-flask"> </i>Solicitud de amistad
+              <div class="badge badge-info">Special</div></a></li>
+          <li> <a href=""> <i class="icon-flask"> </i>Datos del alumno</a></li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="page">
+    <!-- Barra navegación horizontal-->
+    <header class="header">
+      <nav class="navbar">
+        <div class="container-fluid">
+          <div class="navbar-holder d-flex align-items-center justify-content-between">
+            <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a><a
+                href="index.html" class="navbar-brand">
+                <div class="brand-text d-none d-md-inline-block"><span>Alumni </span><strong
+                    class="text-primary">CEV</strong></div>
+              </a></div>
+            <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+              <!-- Opciones del elemento dropdown-->
+              <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i
+                    class="fa fa-bell"></i><span class="badge badge-warning">12</span></a>
+                <ul aria-labelledby="notifications" class="dropdown-menu">
+                  <li><a rel="nofollow" href="#" class="dropdown-item">
+                      <div class="notification d-flex justify-content-between">
+                        <div class="notification-content"><i class="fa fa-envelope"></i>Tienes 6 mensajes nuevos </div>
+                        <div class="notification-time"><small>Hace 4 minutos</small></div>
+                      </div>
+                    </a></li>
+                  <li><a rel="nofollow" href="#" class="dropdown-item">
+                      <div class="notification d-flex justify-content-between">
+                        <div class="notification-content"><i class="fa fa-twitter"></i>Tienes 2 seguidores</div>
+                        <div class="notification-time"><small>Hace 4 minutos</small></div>
+                      </div>
+                    </a></li>
+                  <li><a rel="nofollow" href="#" class="dropdown-item">
+                      <div class="notification d-flex justify-content-between">
+                        <div class="notification-content"><i class="fa fa-upload"></i>Servidor reiniciado</div>
+                        <div class="notification-time"><small>Hace 4 minutos</small></div>
+                      </div>
+                    </a></li>
+                  <li><a rel="nofollow" href="#" class="dropdown-item">
+                      <div class="notification d-flex justify-content-between">
+                        <div class="notification-content"><i class="fa fa-twitter"></i>Tienes 2 seguidores</div>
+                        <div class="notification-time"><small>Hace 10 minutos</small></div>
+                      </div>
+                    </a></li>
+                  <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong> <i
+                          class="fa fa-bell"></i>ver todas las notificaciones </strong></a></li>
+                </ul>
+              </li>
+              <!-- Mesajes del dropdown-->
+              <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i
+                    class="fa fa-envelope"></i><span class="badge badge-info">10</span></a>
+                <ul aria-labelledby="notifications" class="dropdown-menu">
+                  <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
+                      <div class="msg-profile"> <img src="img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle">
+                      </div>
+                      <div class="msg-body">
+                        <h3 class="h5">Jorge Velasco</h3><span>te envié un mensaje directo</span><small>Hace 3 días a
+                          las 7:58 pm - 10.06.2014</small>
+                      </div>
+                    </a></li>
+                  <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
+                      <div class="msg-profile"> <img src="img/avatar-2.jpg" alt="..." class="img-fluid rounded-circle">
+                      </div>
+                      <div class="msg-body">
+                        <h3 class="h5">Juan Rinconada</h3><span>te envié un mensaje directo</span><small>Hace 3 días a
+                          las 7:58 pm - 10.06.2014</small>
+                      </div>
+                    </a></li>
+                  <li><a rel="nofollow" href="#" class="dropdown-item d-flex">
+                      <div class="msg-profile"> <img src="img/avatar-3.jpg" alt="..." class="img-fluid rounded-circle">
+                      </div>
+                      <div class="msg-body">
+                        <h3 class="h5">Juan Lucas Olivares</h3><span>te envié un mensaje directo</span><small>>Hace 3
+                          días a las 7:58 pm - 10.06.2014</small>
+                      </div>
+                    </a></li>
+                  <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong> <i
+                          class="fa fa-envelope"></i>Leer todos los mensajes </strong></a></li>
+                </ul>
+              </li>
+              <!-- Selección lenguajes en el dropdown    -->
+              <li class="nav-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                  class="nav-link language dropdown-toggle"><img src="img/flags/16/ES.png" alt="English"><span
+                    class="d-none d-sm-inline-block">Español</span></a>
+                <ul aria-labelledby="languages" class="dropdown-menu">
+                  <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/DE.png" alt="English"
+                        class="mr-2"><span>Alemán</span></a></li>
+                  <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/FR.png" alt="English"
+                        class="mr-2"><span>Francés </span></a></li>
+                </ul>
+              </li>
+              <!-- Cerrar sesión-->
+              <li class="nav-item"><a href="/login" class="nav-link logout"> <span
+                    class="d-none d-sm-inline-block">Cerrar sesión</span><i class="fa fa-sign-out"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    
+    <div id="dinamic-content" style="display: block">
+        <!-- Breadcrumb-->
+    <div class="breadcrumb-holder">
+      <div class="container-fluid">
+        <ul class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active">Acceso a video conferencia </li>
+        </ul>
+      </div>
+    </div>
+    <!-- Sessiones abiertas -->
+    <section class="dashboard-counts section-padding">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- Contenedor primero del cuerpo de la página primera sección-->
+          <div class="col-xl-2 col-md-4 col-6">
+            <div class="wrapper count-title d-flex">
+              <div class="icon"><i class="icon-user"></i></div>
+              <div class="name"><strong class="text-uppercase">Número alumnos</strong><span>hace 7 días</span>
+                <div class="count-number">25</div>
+              </div>
+            </div>
+          </div>
+          <!-- Contenedor primero del cuerpo de la página primera sección-->
+          <div class="col-xl-2 col-md-4 col-6">
+            <div class="wrapper count-title d-flex">
+              <div class="icon"><i class="icon-padnote"></i></div>
+              <div class="name"><strong class="text-uppercase">Horas impartidas</strong><span>Hace 5 días</span>
+                <div class="count-number">400</div>
+              </div>
+            </div>
+          </div>
+          <!-- Contenedor primero del cuerpo de la página primera sección-->
+          <div class="col-xl-2 col-md-4 col-6">
+            <div class="wrapper count-title d-flex">
+              <div class="icon"><i class="icon-check"></i></div>
+              <div class="name"><strong class="text-uppercase">Horas primer trimestres</strong><span>Hace 1 mes</span>
+                <div class="count-number">342</div>
+              </div>
+            </div>
+          </div>
+          <!-- Contenedor primero del cuerpo de la página primera sección-->
+          <div class="col-xl-2 col-md-4 col-6">
+            <div class="wrapper count-title d-flex">
+              <div class="icon"><i class="icon-bill"></i></div>
+              <div class="name"><strong class="text-uppercase">Horas segundo trimestres</strong><span>Hace dos
+                  días</span>
+                <div class="count-number">123</div>
+              </div>
+            </div>
+          </div>
+          <!-- Contenedor primero del cuerpo de la página primera sección-->
+          <div class="col-xl-2 col-md-4 col-6">
+            <div class="wrapper count-title d-flex">
+              <div class="icon"><i class="icon-list"></i></div>
+              <div class="name"><strong class="text-uppercase">Horas tercer trimestres</strong><span>Hace tres
+                  meses</span>
+                <div class="count-number">92</div>
+              </div>
+            </div>
+          </div>
+          <!-- Contenedor primero del cuerpo de la página primera sección-->
+          <div class="col-xl-2 col-md-4 col-6">
+            <div class="wrapper count-title d-flex">
+              <div class="icon"><i class="icon-list-1"></i></div>
+              <div class="name"><strong class="text-uppercase">Total horas del curso</strong><span>Hace 7 días</span>
+                <div class="count-number">1200</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Sección Header-->
+    <section class="dashboard-header section-padding">
+      <div class="container-fluid">
+        <div class="row d-flex align-items-md-stretch">
+          <!-- Lista de tareas-->
+          <div class="col-lg-3 col-md-6">
+            <div class="card to-do">
+              <h2 class="display h4">Lista de tareas</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              <ul class="check-lists list-unstyled">
+                <li class="d-flex align-items-center">
+                  <input type="checkbox" id="list-1" name="list-1" class="form-control-custom">
+                  <label for="list-1">Similique sunt in culpa qui officia</label>
+                </li>
+                <li class="d-flex align-items-center">
+                  <input type="checkbox" id="list-2" name="list-2" class="form-control-custom">
+                  <label for="list-2">Ed ut perspiciatis unde omnis iste</label>
+                </li>
+                <li class="d-flex align-items-center">
+                  <input type="checkbox" id="list-3" name="list-3" class="form-control-custom">
+                  <label for="list-3">At vero eos et accusamus et iusto </label>
+                </li>
+                <li class="d-flex align-items-center">
+                  <input type="checkbox" id="list-4" name="list-4" class="form-control-custom">
+                  <label for="list-4">Explicabo Nemo ipsam voluptatem</label>
+                </li>
+                <li class="d-flex align-items-center">
+                  <input type="checkbox" id="list-5" name="list-5" class="form-control-custom">
+                  <label for="list-5">Similique sunt in culpa qui officia</label>
+                </li>
+                <li class="d-flex align-items-center">
+                  <input type="checkbox" id="list-6" name="list-6" class="form-control-custom">
+                  <label for="list-6">At vero eos et accusamus et iusto </label>
+                </li>
+                <li class="d-flex align-items-center">
+                  <input type="checkbox" id="list-7" name="list-7" class="form-control-custom">
+                  <label for="list-7">Similique sunt in culpa qui officia</label>
+                </li>
+                <li class="d-flex align-items-center">
+                  <input type="checkbox" id="list-8" name="list-8" class="form-control-custom">
+                  <label for="list-8">Ed ut perspiciatis unde omnis iste</label>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- Gráfico circular-->
+          <div class="col-lg-3 col-md-6">
+            <div class="card project-progress">
+              <h2 class="display h4">Progreso del proyecto</h2>
+              <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              <div class="pie-chart">
+                <canvas id="pieChart" width="300" height="300"> </canvas>
+              </div>
+            </div>
+          </div>
+          <!-- Gráfico en linea -->
+          <div class="col-lg-6 col-md-12 flex-lg-last flex-md-first align-self-baseline">
+            <div class="card sales-report">
+              <h2 class="display h4" id="pruebas">Informe de alumnos inscritos</h2>
+              <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor amet officiis</p>
+              <div class="line-chart">
+                <canvas id="lineCahrt"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Sección de Estadística-->
+    <section class="statistics">
+      <div class="container-fluid">
+        <div class="row d-flex">
+          <div class="col-lg-4">
+            <!-- Income-->
+            <div class="card income text-center">
+              <div class="icon"><i class="icon-line-chart"></i></div>
+              <div class="number">126</div><strong class="text-primary">Total alumnos</strong>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.</p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <!-- Contenedor Asistencia aula-->
+            <div class="card data-usage">
+              <h2 class="display h4">Asistencia en aula anual</h2>
+              <div class="row d-flex align-items-center">
+                <div class="col-sm-6">
+                  <div id="progress-circle" class="d-flex align-items-center justify-content-center"></div>
+                </div>
+                <div class="col-sm-6"><strong class="text-primary" id="faltas"></strong><small>Actual</small><span>100
+                    %</span></div>
+              </div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <!-- Actividad del usuario-->
+            <div class="card user-activity">
+              <h2 class="display h4">Actividad online</h2>
+              <div class="number">210</div>
+              <h3 class="h4 display">Alumnos matriculados</h3>
+              <div class="progress">
+                <div role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
+                  class="progress-bar progress-bar bg-primary"></div>
+              </div>
+              <div class="page-statistics d-flex justify-content-between">
+                <div class="page-statistics-left"><span>Se han conectado a clase</span><strong>230</strong></div>
+                <div class="page-statistics-right"><span>Nuevos alumnos inscritos</span><strong>73.4%</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Sección de actualizaciones -->
+    <section class="mt-30px mb-30px">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-4 col-md-12">
+            <!-- Contenedor Nuevas noticias          -->
+            <div id="new-updates" class="card updates recent-updated">
+              <div id="updates-header" class="card-header d-flex justify-content-between align-items-center">
+                <h2 class="h5 display">
+                  <a data-toggle="collapse" data-parent="#new-updates" href="#updates-box" aria-expanded="true" aria-controls="updates-box">Nuevas noticias</a></h2><data-toggle="collapse" data-parent="#new-updates" href="#updates-box" aria-expanded="true" aria-controls="updates-box">
+                  <i class="fa fa-angle-down"></i>
+                  </a>
+              </div>
+              <div id="updates-box" role="tabpanel" class="collapse show">
+                <ul class="news list-unstyled">
+                  <!-- Item-->
+                  <li class="d-flex justify-content-between">
+                    <div class="left-col d-flex">
+                      <div class="icon"><i class="icon-rss-feed"></i></div>
+                      <div class="title"><strong>Lorem ipsum dolor sit amet.</strong>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                      </div>
+                    </div>
+                    <div class="right-col text-right">
+                      <div class="update-date">25<span class="month">Enero</span></div>
+                    </div>
+                  </li>
+                  <!--Fin Item-->
+                </ul>
+              </div>
+            </div>
+            <!-- Fin del de la sección-->
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <!-- Contenedor conectados-->
+            <div id="daily-feeds" class="card updates daily-feeds">
+              <div id="feeds-header" class="card-header d-flex justify-content-between align-items-center">
+                <h2 class="h5 display"><a data-toggle="collapse" data-parent="#daily-feeds" href="#feeds-box"
+                    aria-expanded="true" aria-controls="feeds-box">Tu conexiones diaria </a></h2>
+                <div class="right-column">
+                  <div class="badge badge-primary">10 mensajes</div><a data-toggle="collapse" data-parent="#daily-feeds"
+                    href="#feeds-box" aria-expanded="true" aria-controls="feeds-box"><i
+                      class="fa fa-angle-down"></i></a>
+                </div>
+              </div>
+              <div id="feeds-box" role="tabpanel" class="collapse show">
+                <div class="feed-box">
+                  <ul class="feed-elements list-unstyled">
+                    <!-- Lista-->
+                    <li class="clearfix">
+                      <div class="feed d-flex justify-content-between">
+                        <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img
+                              src="img/avatar-5.jpg" alt="person" class="img-fluid rounded-circle"></a>
+                          <div class="content"><strong>Nadia Blanco</strong><small>Han hecho una publicación
+                              nueva</small>
+                            <div class="full-date"><small>Hoy 5:60 pm - 12 Junio 2020</small></div>
+                          </div>
+                        </div>
+                        <div class="date"><small>Hace 5 minutos</small></div>
+                      </div>
+                    </li>
+                    <!-- Lista-->
+                    <li class="clearfix">
+                      <div class="feed d-flex justify-content-between">
+                        <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img
+                              src="img/avatar-2.jpg" alt="person" class="img-fluid rounded-circle"></a>
+                          <div class="content"><strong>Juan Rinconada</strong><small>Han hecho una publicación nueva
+                            </small>
+                            <div class="full-date"><small>Hoy 7:60 pm - 12 junio 2020</small></div>
+                            <div class="CTAs"><a href="#" class="btn btn-xs btn-dark"><i class="fa fa-thumbs-up">
+                                </i>Like</a><a href="#" class="btn btn-xs btn-dark"><i class="fa fa-heart"> </i>Love</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="date"><small>Hace 5 minutos</small></div>
+                      </div>
+                    </li>
+                    <!-- Lista-->
+                    <li class="clearfix">
+                      <div class="feed d-flex justify-content-between">
+                        <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img
+                              src="img/avatar-3.jpg" alt="person" class="img-fluid rounded-circle"></a>
+                          <div class="content"><strong>Juan lucas Olivares</strong><small> Han hecho una publicación
+                              nueva </small>
+                            <div class="full-date"><small>Hoy 5:60 pm - 12 junio 2020</small></div>
+                          </div>
+                        </div>
+                        <div class="date"><small>Hace 5 minutos</small></div>
+                      </div>
+                    </li>
+                    <!-- Lista-->
+                    <li class="clearfix">
+                      <div class="feed d-flex justify-content-between">
+                        <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img
+                              src="img/avatar-1.jpg" alt="person" class="img-fluid rounded-circle"></a>
+                          <div class="content"><strong>Jorge Velasco</strong><small>Ha hecho una publicación nueva
+                            </small>
+                            <div class="full-date"><small>Hoy 5:60 pm - 12 junio 2020</small></div>
+                          </div>
+                        </div>
+                        <div class="date"><small>Hace 5 minutos</small></div>
+                      </div>
+                      <div class="message-card"> <small>Lorem Ipsum is simply dummy text of the printing and typesetting
+                          industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Over
+                          the years, sometimes by accident, sometimes on purpose (injected humour and the like).</small>
+                      </div>
+                      <div class="CTAs pull-right"><a href="#" class="btn btn-xs btn-dark"><i class="fa fa-thumbs-up">
+                          </i>Like</a></div>
+                    </li>
+                    <!-- List-->
+                    <li class="clearfix">
+                      <div class="feed d-flex justify-content-between">
+                        <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img
+                              src="img/avatar-06.jpg" alt="person" class="img-fluid rounded-circle"></a>
+                          <div class="content"><strong>Daniel Arroyo</strong><small>Ha hecho una publicación nueva
+                            </small>
+                            <div class="full-date"><small>Hoy 5:60 pm - 12 junio 2020</small></div>
+                          </div>
+                        </div>
+                        <div class="date"><small>Hace 5 minutos</small></div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- Fin del contenedor-->
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <!-- contenedor actividades recientes      -->
+            <div id="recent-activities-wrapper" class="card updates activities">
+              <div id="activites-header" class="card-header d-flex justify-content-between align-items-center">
+                <h2 class="h5 display"><a data-toggle="collapse" data-parent="#recent-activities-wrapper"
+                    href="#activities-box" aria-expanded="true" aria-controls="activities-box">Actividades recientes</a>
+                </h2><a data-toggle="collapse" data-parent="#recent-activities-wrapper" href="#activities-box"
+                  aria-expanded="true" aria-controls="activities-box"><i class="fa fa-angle-down"></i></a>
+              </div>
+              <div id="activities-box" role="tabpanel" class="collapse show">
+                <ul class="activities list-unstyled">
+                  <!-- Artículo-->
+                  <li>
+                    <div class="row">
+                      <div class="col-4 date-holder text-right">
+                        <div class="icon"><i class="icon-clock"></i></div>
+                        <div class="date"> <span>9:00 am</span><span class="text-info">Hace 6 horas</span></div>
+                      </div>
+                      <div class="col-8 content"><strong>Clase de ANDROID</strong>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. </p>
+                      </div>
+                    </div>
+                  </li>
+                  <!-- Artículo-->
+                  <li>
+                    <div class="row">
+                      <div class="col-4 date-holder text-right">
+                        <div class="icon"><i class="icon-clock"></i></div>
+                        <div class="date"> <span>11:00 am</span><span class="text-info">Hace 8 horas</span></div>
+                      </div>
+                      <div class="col-8 content"><strong>Clase de SWIFT</strong>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. </p>
+                      </div>
+                    </div>
+                  </li>
+                  <!-- Artículo-->
+                  <li>
+                    <div class="row">
+                      <div class="col-4 date-holder text-right">
+                        <div class="icon"><i class="icon-clock"></i></div>
+                        <div class="date"> <span>1:00 pm</span><span class="text-info">Hace 10 horas</span></div>
+                      </div>
+                      <div class="col-8 content"><strong>Clase de PHP</strong>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. </p>
+                      </div>
+                    </div>
+                  </li>
+                  <!-- Artículo-->
+                  <li>
+                    <div class="row">
+                      <div class="col-4 date-holder text-right">
+                        <div class="icon"><i class="icon-clock"></i></div>
+                        <div class="date"> <span>15:00 pm</span><span class="text-info">12 hours ago</span></div>
+                      </div>
+                      <div class="col-8 content"><strong>CLAUSTRO</strong>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. </p>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    </div>
+ <!-- calendario de clase con los horarios -->
+  <div id="schedule" style="display: none; width: 100%; height: 100%; margin: 0px; padding: 0px">
+    <div class="cont table-responsive">
+
+            <div class="row">
+                <div class="dropdownb col-2">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border-radius: 5px">
+                        Primer Trimestre
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a type="button" onclick="select1()" id="primerTrim" class="btn dropdown-item" href="#">Primer Trimestre</a>
+                        <a type="button" onclick="select2()" id="segundoTrim" class="btn dropdown-item" href="#">Segundo Trimestre</a>
+                        <a type="button" onclick="select3()" id="tercerTrim" class="btn dropdown-item" href="#">Tercer Trimestre</a>
+                    </div>
+                </div>
+                <div class="col"><h2 id="selectedTrim" style="font-size: 30px">Primer Trimestre</h2></div>
+            </div>
+
+            <table id="firstTrim" style="display: block" class="table table-bordered" style="color: white">
+                <thead>
+                    <tr>
+                        <th id="class" scope="col">Clases</th>
+                        <th scope="col">Lunes</th>
+                        <th scope="col">Martes</th>
+                        <th scope="col">Miércoles</th>
+                        <th scope="col">Jueves</th>
+                        <th scope="col">Viernes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  
+                   <!-- PRIMERA HORA -->
+                    <tr>
+                        <th id="row" scope="row">Primera hora</th>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="0Aula00" class="contentInfo">Aula</p>
+                                    <p id="0content00" class="contentInfo">Contenido</p>
+                                    <p id="0Prof100" class="contentInfo">Profesor</p>
+                                    <p id="0Prof200" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td> 
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="0Aula01" class="contentInfo">Aula</p>
+                                    <p id="0content01" class="contentInfo">Contenido</p>
+                                    <p id="0Prof101" class="contentInfo">Profesor</p>
+                                    <p id="0Prof201" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="0Aula02" class="contentInfo">Aula</p>
+                                    <p id="0content02" class="contentInfo">Contenido</p>
+                                    <p id="0Prof102" class="contentInfo">Profesor</p>
+                                    <p id="0Prof202" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="0Aula03" class="contentInfo">Aula</p>
+                                    <p id="0content03" class="contentInfo">Contenido</p>
+                                    <p id="0Prof103" class="contentInfo">Profesor</p>
+                                    <p id="0Prof203" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="0Aula04" class="contentInfo">Aula</p>
+                                    <p id="0content04" class="contentInfo">Contenido</p>
+                                    <p id="0Prof104" class="contentInfo">Profesor</p>
+                                    <p id="0Prof204" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- SEGUNDA HORA -->
+                    <tr>
+                        <th id="row" scope="row">Segunda hora</th>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="0Aula10" class="contentInfo">Aula</p>
+                                    <p id="0content10" class="contentInfo">Contenido</p>
+                                    <p id="0Prof110" class="contentInfo">Profesor</p>
+                                    <p id="0Prof210" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td> 
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="0Aula11" class="contentInfo">Aula</p>
+                                    <p id="0content11" class="contentInfo">Contenido</p>
+                                    <p id="0Prof111" class="contentInfo">Profesor</p>
+                                    <p id="0Prof211" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="0Aula12" class="contentInfo">Aula</p>
+                                    <p id="0content12" class="contentInfo">Contenido</p>
+                                    <p id="0Prof112" class="contentInfo">Profesor</p>
+                                    <p id="0Prof212" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="0Aula13" class="contentInfo">Aula</p>
+                                    <p id="0content13" class="contentInfo">Contenido</p>
+                                    <p id="0Prof113" class="contentInfo">Profesor</p>
+                                    <p id="0Prof213" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="0Aula14" class="contentInfo">Aula</p>
+                                    <p id="0content14" class="contentInfo">Contenido</p>
+                                    <p id="0Prof114" class="contentInfo">Profesor</p>
+                                    <p id="0Prof214" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- TERCERA HORA -->
+                    <tr>
+                        <th id="row" scope="row">Tercera hora</th>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="0Aula20" class="contentInfo">Aula</p>
+                                    <p id="0content20" class="contentInfo">Contenido</p>
+                                    <p id="0Prof120" class="contentInfo">Profesor</p>
+                                    <p id="0Prof220" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td> 
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="0Aula21" class="contentInfo">Aula</p>
+                                    <p id="0content21" class="contentInfo">Contenido</p>
+                                    <p id="0Prof121" class="contentInfo">Profesor</p>
+                                    <p id="0Prof221" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="0Aula22" class="contentInfo">Aula</p>
+                                    <p id="0content22" class="contentInfo">Contenido</p>
+                                    <p id="0Prof122" class="contentInfo">Profesor</p>
+                                    <p id="0Prof222" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="0Aula23" class="contentInfo">Aula</p>
+                                    <p id="0content23" class="contentInfo">Contenido</p>
+                                    <p id="0Prof123" class="contentInfo">Profesor</p>
+                                    <p id="0Prof223" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="0Aula24" class="contentInfo">Aula</p>
+                                    <p id="0content24" class="contentInfo">Contenido</p>
+                                    <p id="0Prof124" class="contentInfo">Profesor</p>
+                                    <p id="0Prof224" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- CUARTA HORA -->
+                    <tr>
+                        <th id="row" scope="row">Cuarta hora</th>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="0Aula30" class="contentInfo">Aula</p>
+                                    <p id="0content30" class="contentInfo">Contenido</p>
+                                    <p id="0Prof130" class="contentInfo">Profesor</p>
+                                    <p id="0Prof230" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td> 
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="0Aula31" class="contentInfo">Aula</p>
+                                    <p id="0content31" class="contentInfo">Contenido</p>
+                                    <p id="0Prof131" class="contentInfo">Profesor</p>
+                                    <p id="0Prof231" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="0Aula32" class="contentInfo">Aula</p>
+                                    <p id="0content32" class="contentInfo">Contenido</p>
+                                    <p id="0Prof132" class="contentInfo">Profesor</p>
+                                    <p id="0Prof232" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="0Aula33" class="contentInfo">Aula</p>
+                                    <p id="0content33" class="contentInfo">Contenido</p>
+                                    <p id="0Prof133" class="contentInfo">Profesor</p>
+                                    <p id="0Prof233" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="0Aula34" class="contentInfo">Aula</p>
+                                    <p id="0content34" class="contentInfo">Contenido</p>
+                                    <p id="0Prof134" class="contentInfo">Profesor</p>
+                                    <p id="0Prof234" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- QUINTA HORA -->
+                    <tr>
+                        <th id="row" scope="row">Quinta hora</th>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="0Aula40" class="contentInfo">Aula</p>
+                                    <p id="0content40" class="contentInfo">Contenido</p>
+                                    <p id="0Prof140" class="contentInfo">Profesor</p>
+                                    <p id="0Prof240" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td> 
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="0Aula41" class="contentInfo">Aula</p>
+                                    <p id="0content41" class="contentInfo">Contenido</p>
+                                    <p id="0Prof141" class="contentInfo">Profesor</p>
+                                    <p id="0Prof241" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="0Aula42" class="contentInfo">Aula</p>
+                                    <p id="0content42" class="contentInfo">Contenido</p>
+                                    <p id="0Prof142" class="contentInfo">Profesor</p>
+                                    <p id="0Prof242" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="0Aula43" class="contentInfo">Aula</p>
+                                    <p id="0content43" class="contentInfo">Contenido</p>
+                                    <p id="0Prof143" class="contentInfo">Profesor</p>
+                                    <p id="0Prof243" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="0Aula44" class="contentInfo">Aula</p>
+                                    <p id="0content44" class="contentInfo">Contenido</p>
+                                    <p id="0Prof144" class="contentInfo">Profesor</p>
+                                    <p id="0Prof244" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- SEXTA HORA -->
+                    <tr>
+                        <th id="row" scope="row">Sexta hora</th>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="0Aula50" class="contentInfo">Aula</p>
+                                    <p id="0content50" class="contentInfo">Contenido</p>
+                                    <p id="0Prof150" class="contentInfo">Profesor</p>
+                                    <p id="0Prof250" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td> 
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="0Aula51" class="contentInfo">Aula</p>
+                                    <p id="0content51" class="contentInfo">Contenido</p>
+                                    <p id="0Prof151" class="contentInfo">Profesor</p>
+                                    <p id="0Prof251" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="0Aula52" class="contentInfo">Aula</p>
+                                    <p id="0content52" class="contentInfo">Contenido</p>
+                                    <p id="0Prof152" class="contentInfo">Profesor</p>
+                                    <p id="0Prof252" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="0Aula53" class="contentInfo">Aula</p>
+                                    <p id="0content53" class="contentInfo">Contenido</p>
+                                    <p id="0Prof153" class="contentInfo">Profesor</p>
+                                    <p id="0Prof253" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="0Aula54" class="contentInfo">Aula</p>
+                                    <p id="0content54" class="contentInfo">Contenido</p>
+                                    <p id="0Prof154" class="contentInfo">Profesor</p>
+                                    <p id="0Prof254" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table id="secondTrim" style="display: hidden" class="table table-bordered table-info" style="color: white">
+                <thead>
+                    <tr>
+                        <th id="class" scope="col">Clases</th>
+                        <th scope="col">Lunes</th>
+                        <th scope="col">Martes</th>
+                        <th scope="col">Miércoles</th>
+                        <th scope="col">Jueves</th>
+                        <th scope="col">Viernes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  
+                   <!-- PRIMERA HORA -->
+                    <tr>
+                        <th id="row" scope="row">Primera hora</th>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="1Aula00" class="contentInfo">Aula</p>
+                                    <p id="1content00" class="contentInfo">Contenido</p>
+                                    <p id="1Prof100" class="contentInfo">Profesor</p>
+                                    <p id="1Prof200" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td> 
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="1Aula01" class="contentInfo">Aula</p>
+                                    <p id="1content01" class="contentInfo">Contenido</p>
+                                    <p id="1Prof101" class="contentInfo">Profesor</p>
+                                    <p id="1Prof201" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="1Aula02" class="contentInfo">Aula</p>
+                                    <p id="1content02" class="contentInfo">Contenido</p>
+                                    <p id="1Prof102" class="contentInfo">Profesor</p>
+                                    <p id="1Prof202" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="1Aula03" class="contentInfo">Aula</p>
+                                    <p id="1content03" class="contentInfo">Contenido</p>
+                                    <p id="1Prof103" class="contentInfo">Profesor</p>
+                                    <p id="1Prof203" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="1Aula04" class="contentInfo">Aula</p>
+                                    <p id="1content04" class="contentInfo">Contenido</p>
+                                    <p id="1Prof104" class="contentInfo">Profesor</p>
+                                    <p id="1Prof204" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- SEGUNDA HORA -->
+                    <tr>
+                        <th id="row" scope="row">Segunda hora</th>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="1Aula10" class="contentInfo">Aula</p>
+                                    <p id="1content10" class="contentInfo">Contenido</p>
+                                    <p id="1Prof110" class="contentInfo">Profesor</p>
+                                    <p id="1Prof210" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td> 
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="1Aula11" class="contentInfo">Aula</p>
+                                    <p id="1content11" class="contentInfo">Contenido</p>
+                                    <p id="1Prof111" class="contentInfo">Profesor</p>
+                                    <p id="1Prof211" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="1Aula12" class="contentInfo">Aula</p>
+                                    <p id="1content12" class="contentInfo">Contenido</p>
+                                    <p id="1Prof112" class="contentInfo">Profesor</p>
+                                    <p id="1Prof212" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="1Aula13" class="contentInfo">Aula</p>
+                                    <p id="1content13" class="contentInfo">Contenido</p>
+                                    <p id="1Prof113" class="contentInfo">Profesor</p>
+                                    <p id="1Prof213" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="1Aula14" class="contentInfo">Aula</p>
+                                    <p id="1content14" class="contentInfo">Contenido</p>
+                                    <p id="1Prof114" class="contentInfo">Profesor</p>
+                                    <p id="1Prof214" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- TERCERA HORA -->
+                    <tr>
+                        <th id="row" scope="row">Tercera hora</th>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="1Aula20" class="contentInfo">Aula</p>
+                                    <p id="1content20" class="contentInfo">Contenido</p>
+                                    <p id="1Prof120" class="contentInfo">Profesor</p>
+                                    <p id="1Prof220" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td> 
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="1Aula21" class="contentInfo">Aula</p>
+                                    <p id="1content21" class="contentInfo">Contenido</p>
+                                    <p id="1Prof121" class="contentInfo">Profesor</p>
+                                    <p id="1Prof221" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="1Aula22" class="contentInfo">Aula</p>
+                                    <p id="1content22" class="contentInfo">Contenido</p>
+                                    <p id="1Prof122" class="contentInfo">Profesor</p>
+                                    <p id="1Prof222" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="1Aula23" class="contentInfo">Aula</p>
+                                    <p id="1content23" class="contentInfo">Contenido</p>
+                                    <p id="1Prof123" class="contentInfo">Profesor</p>
+                                    <p id="1Prof223" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="1Aula24" class="contentInfo">Aula</p>
+                                    <p id="1content24" class="contentInfo">Contenido</p>
+                                    <p id="1Prof124" class="contentInfo">Profesor</p>
+                                    <p id="1Prof224" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- CUARTA HORA -->
+                    <tr>
+                        <th id="row" scope="row">Cuarta hora</th>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="1Aula30" class="contentInfo">Aula</p>
+                                    <p id="1content30" class="contentInfo">Contenido</p>
+                                    <p id="1Prof130" class="contentInfo">Profesor</p>
+                                    <p id="1Prof230" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td> 
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="1Aula31" class="contentInfo">Aula</p>
+                                    <p id="1content31" class="contentInfo">Contenido</p>
+                                    <p id="1Prof131" class="contentInfo">Profesor</p>
+                                    <p id="1Prof231" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="1Aula32" class="contentInfo">Aula</p>
+                                    <p id="1content32" class="contentInfo">Contenido</p>
+                                    <p id="1Prof132" class="contentInfo">Profesor</p>
+                                    <p id="1Prof232" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="1Aula33" class="contentInfo">Aula</p>
+                                    <p id="1content33" class="contentInfo">Contenido</p>
+                                    <p id="1Prof133" class="contentInfo">Profesor</p>
+                                    <p id="1Prof233" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="1Aula34" class="contentInfo">Aula</p>
+                                    <p id="1content34" class="contentInfo">Contenido</p>
+                                    <p id="1Prof134" class="contentInfo">Profesor</p>
+                                    <p id="1Prof234" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- QUINTA HORA -->
+                    <tr>
+                        <th id="row" scope="row">Quinta hora</th>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="1Aula40" class="contentInfo">Aula</p>
+                                    <p id="1content40" class="contentInfo">Contenido</p>
+                                    <p id="1Prof140" class="contentInfo">Profesor</p>
+                                    <p id="1Prof240" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td> 
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="1Aula41" class="contentInfo">Aula</p>
+                                    <p id="1content41" class="contentInfo">Contenido</p>
+                                    <p id="1Prof141" class="contentInfo">Profesor</p>
+                                    <p id="1Prof241" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="1Aula42" class="contentInfo">Aula</p>
+                                    <p id="1content42" class="contentInfo">Contenido</p>
+                                    <p id="1Prof142" class="contentInfo">Profesor</p>
+                                    <p id="1Prof242" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="1Aula43" class="contentInfo">Aula</p>
+                                    <p id="1content43" class="contentInfo">Contenido</p>
+                                    <p id="1Prof143" class="contentInfo">Profesor</p>
+                                    <p id="1Prof243" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="1Aula44" class="contentInfo">Aula</p>
+                                    <p id="1content44" class="contentInfo">Contenido</p>
+                                    <p id="1Prof144" class="contentInfo">Profesor</p>
+                                    <p id="1Prof244" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- SEXTA HORA -->
+                    <tr>
+                        <th id="row" scope="row">Sexta hora</th>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="1Aula50" class="contentInfo">Aula</p>
+                                    <p id="1content50" class="contentInfo">Contenido</p>
+                                    <p id="1Prof150" class="contentInfo">Profesor</p>
+                                    <p id="1Prof250" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td> 
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="1Aula51" class="contentInfo">Aula</p>
+                                    <p id="1content51" class="contentInfo">Contenido</p>
+                                    <p id="1Prof151" class="contentInfo">Profesor</p>
+                                    <p id="1Prof251" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="1Aula52" class="contentInfo">Aula</p>
+                                    <p id="1content52" class="contentInfo">Contenido</p>
+                                    <p id="1Prof152" class="contentInfo">Profesor</p>
+                                    <p id="1Prof252" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="1Aula53" class="contentInfo">Aula</p>
+                                    <p id="1content53" class="contentInfo">Contenido</p>
+                                    <p id="1Prof153" class="contentInfo">Profesor</p>
+                                    <p id="1Prof253" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="1Aula54" class="contentInfo">Aula</p>
+                                    <p id="1content54" class="contentInfo">Contenido</p>
+                                    <p id="1Prof154" class="contentInfo">Profesor</p>
+                                    <p id="1Prof254" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table id="thirdTrim" style="display: hidden" class="table table-bordered table-success" style="color: white">
+                <thead>
+                    <tr>
+                        <th id="class" scope="col">Clases</th>
+                        <th scope="col">Lunes</th>
+                        <th scope="col">Martes</th>
+                        <th scope="col">Miércoles</th>
+                        <th scope="col">Jueves</th>
+                        <th scope="col">Viernes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  
+                   <!-- PRIMERA HORA -->
+                    <tr>
+                        <th id="row" scope="row">Primera hora</th>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="2Aula00" class="contentInfo">Aula</p>
+                                    <p id="2content00" class="contentInfo">Contenido</p>
+                                    <p id="2Prof100" class="contentInfo">Profesor</p>
+                                    <p id="2Prof200" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td> 
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="2Aula01" class="contentInfo">Aula</p>
+                                    <p id="2content01" class="contentInfo">Contenido</p>
+                                    <p id="2Prof101" class="contentInfo">Profesor</p>
+                                    <p id="2Prof201" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="2Aula02" class="contentInfo">Aula</p>
+                                    <p id="2content02" class="contentInfo">Contenido</p>
+                                    <p id="2Prof102" class="contentInfo">Profesor</p>
+                                    <p id="2Prof202" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="2Aula03" class="contentInfo">Aula</p>
+                                    <p id="2content03" class="contentInfo">Contenido</p>
+                                    <p id="2Prof103" class="contentInfo">Profesor</p>
+                                    <p id="2Prof203" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="2Aula04" class="contentInfo">Aula</p>
+                                    <p id="2content04" class="contentInfo">Contenido</p>
+                                    <p id="2Prof104" class="contentInfo">Profesor</p>
+                                    <p id="2Prof204" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- SEGUNDA HORA -->
+                    <tr>
+                        <th id="row" scope="row">Segunda hora</th>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="2Aula10" class="contentInfo">Aula</p>
+                                    <p id="2content10" class="contentInfo">Contenido</p>
+                                    <p id="2Prof110" class="contentInfo">Profesor</p>
+                                    <p id="2Prof210" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td> 
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="2Aula11" class="contentInfo">Aula</p>
+                                    <p id="2content11" class="contentInfo">Contenido</p>
+                                    <p id="2Prof111" class="contentInfo">Profesor</p>
+                                    <p id="2Prof211" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="2Aula12" class="contentInfo">Aula</p>
+                                    <p id="2content12" class="contentInfo">Contenido</p>
+                                    <p id="2Prof112" class="contentInfo">Profesor</p>
+                                    <p id="2Prof212" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="2Aula13" class="contentInfo">Aula</p>
+                                    <p id="2content13" class="contentInfo">Contenido</p>
+                                    <p id="2Prof113" class="contentInfo">Profesor</p>
+                                    <p id="2Prof213" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="2Aula14" class="contentInfo">Aula</p>
+                                    <p id="2content14" class="contentInfo">Contenido</p>
+                                    <p id="2Prof114" class="contentInfo">Profesor</p>
+                                    <p id="2Prof214" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- TERCERA HORA -->
+                    <tr>
+                        <th id="row" scope="row">Tercera hora</th>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="2Aula20" class="contentInfo">Aula</p>
+                                    <p id="2content20" class="contentInfo">Contenido</p>
+                                    <p id="2Prof120" class="contentInfo">Profesor</p>
+                                    <p id="2Prof220" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td> 
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="2Aula21" class="contentInfo">Aula</p>
+                                    <p id="2content21" class="contentInfo">Contenido</p>
+                                    <p id="2Prof121" class="contentInfo">Profesor</p>
+                                    <p id="2Prof221" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="2Aula22" class="contentInfo">Aula</p>
+                                    <p id="2content22" class="contentInfo">Contenido</p>
+                                    <p id="2Prof122" class="contentInfo">Profesor</p>
+                                    <p id="2Prof222" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="2Aula23" class="contentInfo">Aula</p>
+                                    <p id="2content23" class="contentInfo">Contenido</p>
+                                    <p id="2Prof123" class="contentInfo">Profesor</p>
+                                    <p id="2Prof223" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="2Aula24" class="contentInfo">Aula</p>
+                                    <p id="2content24" class="contentInfo">Contenido</p>
+                                    <p id="2Prof124" class="contentInfo">Profesor</p>
+                                    <p id="2Prof224" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- CUARTA HORA -->
+                    <tr>
+                        <th id="row" scope="row">Cuarta hora</th>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="2Aula30" class="contentInfo">Aula</p>
+                                    <p id="2content30" class="contentInfo">Contenido</p>
+                                    <p id="2Prof130" class="contentInfo">Profesor</p>
+                                    <p id="2Prof230" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td> 
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="2Aula31" class="contentInfo">Aula</p>
+                                    <p id="2content31" class="contentInfo">Contenido</p>
+                                    <p id="2Prof131" class="contentInfo">Profesor</p>
+                                    <p id="2Prof231" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="2Aula32" class="contentInfo">Aula</p>
+                                    <p id="2content32" class="contentInfo">Contenido</p>
+                                    <p id="2Prof132" class="contentInfo">Profesor</p>
+                                    <p id="2Prof232" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="2Aula33" class="contentInfo">Aula</p>
+                                    <p id="2content33" class="contentInfo">Contenido</p>
+                                    <p id="2Prof133" class="contentInfo">Profesor</p>
+                                    <p id="2Prof233" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="2Aula34" class="contentInfo">Aula</p>
+                                    <p id="2content34" class="contentInfo">Contenido</p>
+                                    <p id="2Prof134" class="contentInfo">Profesor</p>
+                                    <p id="2Prof234" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- QUINTA HORA -->
+                    <tr>
+                        <th id="row" scope="row">Quinta hora</th>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="2Aula40" class="contentInfo">Aula</p>
+                                    <p id="2content40" class="contentInfo">Contenido</p>
+                                    <p id="2Prof140" class="contentInfo">Profesor</p>
+                                    <p id="2Prof240" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td> 
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="2Aula41" class="contentInfo">Aula</p>
+                                    <p id="2content41" class="contentInfo">Contenido</p>
+                                    <p id="2Prof141" class="contentInfo">Profesor</p>
+                                    <p id="2Prof241" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="2Aula42" class="contentInfo">Aula</p>
+                                    <p id="2content42" class="contentInfo">Contenido</p>
+                                    <p id="2Prof142" class="contentInfo">Profesor</p>
+                                    <p id="2Prof242" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="2Aula43" class="contentInfo">Aula</p>
+                                    <p id="2content43" class="contentInfo">Contenido</p>
+                                    <p id="2Prof143" class="contentInfo">Profesor</p>
+                                    <p id="2Prof243" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="2Aula44" class="contentInfo">Aula</p>
+                                    <p id="2content44" class="contentInfo">Contenido</p>
+                                    <p id="2Prof144" class="contentInfo">Profesor</p>
+                                    <p id="2Prof244" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- SEXTA HORA -->
+                    <tr>
+                        <th id="row" scope="row">Sexta hora</th>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="2Aula50" class="contentInfo">Aula</p>
+                                    <p id="2content50" class="contentInfo">Contenido</p>
+                                    <p id="2Prof150" class="contentInfo">Profesor</p>
+                                    <p id="2Prof250" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td> 
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="2Aula51" class="contentInfo">Aula</p>
+                                    <p id="2content51" class="contentInfo">Contenido</p>
+                                    <p id="2Prof151" class="contentInfo">Profesor</p>
+                                    <p id="2Prof251" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="2Aula52" class="contentInfo">Aula</p>
+                                    <p id="2content52" class="contentInfo">Contenido</p>
+                                    <p id="2Prof152" class="contentInfo">Profesor</p>
+                                    <p id="2Prof252" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="2Aula53" class="contentInfo">Aula</p>
+                                    <p id="2content53" class="contentInfo">Contenido</p>
+                                    <p id="2Prof153" class="contentInfo">Profesor</p>
+                                    <p id="2Prof253" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div id="title" class="col-4">
+                                    <p>Aula:</p>
+                                    <p>Contenido:</p>
+                                    <p>Profesor:</p>
+                                    <p>Profesor:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="2Aula54" class="contentInfo">Aula</p>
+                                    <p id="2content54" class="contentInfo">Contenido</p>
+                                    <p id="2Prof154" class="contentInfo">Profesor</p>
+                                    <p id="2Prof254" class="contentInfo">Profesor</p>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+  </div>
+
+  <div id="grades" style="display: none; width: 100%; height: 100%; margin: 0px; padding: 0px">
+      <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">EVALUACIÓN</th>
+                    <th scope="col">ASIGNATURA</th>
+                    <th scope="col">NOTA</th>
+                </tr>
+            </thead>
+            <tbody id="grades_table">
+                <tr>
+                    <td scope="row">CARGANDO...</td>
+                    <td scope="row">CARGANDO...</td>
+                    <td>CARGANDO...</td>
+                </tr>
+            </tbody>
+        </table>
+  </div>
+  
+  <!-- archívos JavaScript requeridos incluidas librerías-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/grasp_mobile_progress_circle-1.0.0.min.js"></script>
+  <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
+  <script src="vendor/chart.js/Chart.min.js"></script>
+  <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
+  <script src="vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="js/charts-home.js"></script>
+  <script src="js/home-premium.js"> </script>
+  <script src="js/front.js"></script>
+  <script src="aux/data_seize.js"></script>
+</body>
+
+</html
