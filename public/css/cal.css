@@ -1,0 +1,20 @@
+.cal {
+    width: 100%;
+    margin: 10px;
+}
+
+span {
+    display: none
+}
+
+.free_day {
+    background-color: green;
+}
+
+.holiday {
+    background-color: aquamarine;
+}
+
+.event {
+    background-color: beige;
+}

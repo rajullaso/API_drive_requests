@@ -1,10 +1,14 @@
 $(document).onloadstart(getData());
-
+const header = document.querySelector('header');
+const section1 = document.getElementById('events');
+const section2 = document.getElementById('festive');
+const section3 = document.getElementById('nolective');
+var calendario = [];
 function getData() {
   var xhttp = new XMLHttpRequest();
   var user = getCookie('username');
 
-  xhttp.onreadystatechange = function() {
+  xhttp.onreadystatechange = function () {
     var myArr = JSON.parse(xhttp.response);
     assign_data_to_fields(myArr);
   };
@@ -47,26 +51,14 @@ function assign_data_to_fields(arr) {
   asistencia = datos['asistencia'];
   asistance(asistencia);
 
-
   var notas = datos['notas'];
   grades_settler(notas);
 
-  /*
-  var calendario = datos['calendario'];
-  document.getElementById('calendario').innerHTML = calendario;
-  
-  var grupo = datos['grupo'];
-  document.getElementById('grupo').innerHTML = grupo;
-  
-  var carnet = datos['carnet'];
-  document.getElementById('carnet').innerHTML = carnet;
-  
-  var codigoQr = datos['codigoQr'];
-  document.getElementById('codigoQr').innerHTML = codigoQr;
-    
-  var sancionPracticas = datos['sancionPracticas'];
-  document.getElementById('sancionPracticas').innerHTML = sancionPracticas;
-*/
+  today = new Date();
+  currentMonth = today.getMonth();
+  currentYear = today.getFullYear();
+  calendario = datos['calendario'];
+  showCalendar(currentMonth, currentYear, calendario);
 }
 
 function show_advises(avisos) {
@@ -88,6 +80,7 @@ function schedule() {
   var secondTrim = document.getElementById('secondTrim');
   var thirdTrim = document.getElementById('thirdTrim');
   var grades = document.getElementById('grades');
+  var calendar = document.getElementById('calendar');
 
   main.style.display = 'none';
   schedule.style.display = 'block';
@@ -95,26 +88,44 @@ function schedule() {
   secondTrim.style.display = 'none';
   thirdTrim.style.display = 'none';
   grades.style.display = 'none';
+  calendar.style.display = 'none';
 }
 
 function main() {
   var schedule = document.getElementById('schedule');
   var main = document.getElementById('dinamic-content');
   var grades = document.getElementById('grades');
+  var calendar = document.getElementById('calendar');
 
   main.style.display = 'block';
   schedule.style.display = 'none';
   grades.style.display = 'none';
+  calendar.style.display = 'none';
 }
 
 function gradesTab() {
   var schedule = document.getElementById('schedule');
   var main = document.getElementById('dinamic-content');
   var grades = document.getElementById('grades');
+  var calendar = document.getElementById('calendar');
 
   main.style.display = 'none';
   schedule.style.display = 'none';
   grades.style.display = 'block';
+  main.style.display = 'none';
+  calendar.style.display = 'none';
+}
+
+function calTab() {
+  var calendar = document.getElementById('calendar');
+  var main = document.getElementById('dinamic-content');
+  var grades = document.getElementById('grades');
+  var schedule = document.getElementById('schedule');
+
+  main.style.display = 'none';
+  schedule.style.display = 'none';
+  calendar.style.display = 'block';
+  grades.style.display = 'none';
 }
 
 function select1() {
@@ -214,13 +225,13 @@ function create_schedule(datos) {
 }
 
 function grades_settler(notas) {
-    var evaluaciones = notas['evaluaciones'];
-    var body = document.getElementById("grades_table");
-    body.innerHTML = '';
-    var trimestre1 = evaluaciones[0];
-        for(asignatura = 0; asignatura < trimestre1['asignaturas'].length; asignatura++) {
-            var txt = trimestre1['asignaturas'][asignatura];
-            body.innerHTML += `
+  var evaluaciones = notas['evaluaciones'];
+  var body = document.getElementById("grades_table");
+  body.innerHTML = '';
+  var trimestre1 = evaluaciones[0];
+  for (asignatura = 0; asignatura < trimestre1['asignaturas'].length; asignatura++) {
+    var txt = trimestre1['asignaturas'][asignatura];
+    body.innerHTML += `
 
                 <tr>
                     <td style="color: green; font-weight: bold" scope="row">${trimestre1.nombre}</td>
@@ -228,11 +239,11 @@ function grades_settler(notas) {
                     <td>${txt.nota}</td>
                 </tr>
             `
-        }
-    var trimestre2 = evaluaciones[1];
-        for(asignatura = 0; asignatura < trimestre2['asignaturas'].length; asignatura++) {
-            var txt = trimestre2['asignaturas'][asignatura];
-            body.innerHTML += `
+  }
+  var trimestre2 = evaluaciones[1];
+  for (asignatura = 0; asignatura < trimestre2['asignaturas'].length; asignatura++) {
+    var txt = trimestre2['asignaturas'][asignatura];
+    body.innerHTML += `
 
                 <tr>
                     <td style="color: blue; font-weight: bold" scope="row">${trimestre2.nombre}</td>
@@ -240,11 +251,11 @@ function grades_settler(notas) {
                     <td>${txt.nota}</td>
                 </tr>
             `
-        }
-    var trimestre3 = evaluaciones[2];
-        for(asignatura = 0; asignatura < trimestre3['asignaturas'].length; asignatura++) {
-            var txt = trimestre3['asignaturas'][asignatura];
-            body.innerHTML += `
+  }
+  var trimestre3 = evaluaciones[2];
+  for (asignatura = 0; asignatura < trimestre3['asignaturas'].length; asignatura++) {
+    var txt = trimestre3['asignaturas'][asignatura];
+    body.innerHTML += `
 
                 <tr>
                     <td style="color: orange; font-weight: bold" scope="row">${trimestre3.nombre}</td>
@@ -252,61 +263,176 @@ function grades_settler(notas) {
                     <td>${txt.nota}</td>
                 </tr>
             `
-        }
+  }
 }
 
-/*function grades_settler(notas) {
-  var evaluaciones = notas['evaluaciones'];
-  var body = document.getElementById("grades_table");
-  var tbl = document.createElement('table');
-  var thead = tbl.createTHead();
-  var row = thead.insertRow();
+function takeData(calendario) {
+  showEvents(calendario);
+  showFestivos(calendario);
+  showNoLectivos(calendario);
+}
 
-  tbl.style.width = '100%';
-  tbl.style.border = '1px solid black';
+function showEvents(calendario) {
+  const events = calendario['eventos'];
 
-  for (evaluacion = 0; evaluacion < evaluaciones.length; evaluacion++) {
-    var trimestre = evaluaciones[evaluacion];
-    var th = document.createElement("th");
-    var text = document.createTextNode(trimestre['nombre']);
-    th.appendChild(text);
-    row.appendChild(th);
+  for (var key in events) {
+    var value = events[key];
+    get_event_dates(value.inicio, value.fin);
+  }
+}
 
-  for (asignatura = 0; asignatura < trimestre['asignaturas'].length; asignatura++) {
-    var tr = tbl.insertRow();
-    var td = tr.insertCell();
-    var txt = trimestre['asignaturas'][asignatura];
+function get_event_dates(inicio, fin) {
+  //la diferencia de días entre el principio y el fin del evento
+  var end_parts = fin.split("/");
+  var end_day = end_parts[0];
+  var end_month = end_parts[1];
+  var end_year = end_parts[2];
 
-    var datosAsignatura = document.createTextNode(`${txt['nombre'] + "= " + txt['nota']}`);
+  var init_parts = inicio.split("/");
+  var init_day = init_parts[0];
+  var init_month = init_parts[1];
+  var init_year = init_parts[2];
 
-    td.appendChild(datosAsignatura);
+  var days = end_day - init_day;
+  var months = end_month - init_month;
 
-    if (txt['algunaNotaHnd'] != '') {
-      var hndata = txt['hnd'];
-      for (hnd = 0; hnd < hndata.length; hnd++) {
-        var tr = tbl.insertRow();
-        var td = tr.insertCell();
-        var englishDegree = hndata[hnd];
+  if (days > 0) {
 
-        var datosHND = document.createTextNode(`${englishDegree['nombre']}` + `${englishDegree['nota']}` + `${englishDegree['comentario']}`);
-        td.appendChild(datosHND);
+    if (months > 0) {
+      days = daysInMonth(init_month, init_year) - init_day + end_day;
+
+      for (let j = 0; j < months - 1; j++) {
+        days += daysInMonth(init_month + j, init_year);
       }
     }
 
-    if (txt['algunaNotaUf'] != '') {
-      var ufdata = txt['ufesor'];
+    // cada día entre el inicio y el final se pinta
+    for (let i = 0; i < days + 1; i++) {
+      var next_day = parseInt(init_day, 10) + i;
+      var next_month = parseInt(init_month, 10);
+      var datestring = pad(next_day) + "/" + pad(next_month) + "/" + init_year;
 
-      for (uf = 0; uf < ufdata.length; uf++) {
-        var tr = tbl.insertRow();
-        var td = tr.insertCell();
-        var teacherDegree = ufdata[uf];
+      addToCal(datestring, 'event');
 
-        var datosuf = document.createTextNode(`${teacherDegree['nombre']}` + `${teacherDegree['nota']}` + `${teacherDegree['comentario']}` + `${teacherDegree['profesor']}`);
-        td.appendChild(datosuf);
+      var did_month_change = daysInMonth(init_month, init_year) - init_day;
+
+      if (did_month_change == 0) {
+        init_month++;
       }
     }
-    
+  } else {
+    // si el evento empieza y termina el mismo día
+    addToCal(inicio, 'event');
   }
-  body.appendChild(tbl);
+}
+
+function addToCal(day, day_class) {
+  if (document.getElementById(`${day}`) != null) {
+    document.getElementById(`${day}`).classList.add(`${day_class}`);
   }
-}*/
+}
+
+function daysInMonth(month, year) {
+  return new Date(year, month + 1, 0).getDate();
+}
+
+function showFestivos(calendario) {
+  const festiv = calendario['festivos'];
+
+  for (var key in festiv) {
+
+    var free_day = festiv[key];
+
+    addToCal(free_day, 'free_day');
+  }
+}
+
+function showNoLectivos(calendario) {
+  const nolect = calendario['noLectivos'];
+
+  for (var key in nolect) {
+
+    var value = nolect[key];
+
+    addToCal(value, 'holiday')
+  }
+}
+
+function next() {
+  currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
+  currentMonth = (currentMonth + 1) % 12;
+  showCalendar(currentMonth, currentYear, calendario);
+}
+
+function previous() {
+  currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
+  currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
+  showCalendar(currentMonth, currentYear, calendario);
+}
+
+function jump() {
+  currentYear = parseInt(selectYear.value);
+  currentMonth = parseInt(selectMonth.value);
+  showCalendar(currentMonth, currentYear, calendario);
+}
+
+function showCalendar(month, year, calendario) {
+  const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+
+  let firstDay = (new Date(year, month)).getDay();
+  firstDay--;
+
+  tbl = document.getElementById("calendar-body"); // body of the calendar
+
+  // clearing all previous cells
+  tbl.innerHTML = "";
+
+  // filing data about month and in the page via DOM.
+  monthAndYear = document.getElementById("monthAndYear");
+
+  monthAndYear.innerHTML = months[month] + " " + year;
+
+  // creating all cells
+  let date = 1;
+  for (let i = 0; i < 6; i++) {
+    // creates a table row
+    let row = document.createElement("tr");
+
+    //creating individual cells, filing them up with data.
+    for (let j = 0; j < 7; j++) {
+      if (i === 0 && j < firstDay) {
+        cell = document.createElement("td");
+        cellText = document.createTextNode("");
+        cell.appendChild(cellText);
+        row.appendChild(cell);
+      }
+      else if (date > daysInMonth(month, year)) {
+        break;
+      }
+      else {
+        cell = document.createElement("td");
+        cell.id = pad(date) + "/" + pad((month + 1)) + "/" + year;
+        cellText = document.createTextNode(date);
+
+        if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+          cell.classList.add("bg-info");
+        } // color today's date
+
+        cell.appendChild(cellText);
+        row.appendChild(cell);
+        date++;
+      }
+    }
+    tbl.appendChild(row); // appending each row into calendar body.
+  }
+  takeData(calendario);
+}
+
+// check how many days in a month code from https://dzone.com/articles/determining-number-days-month
+function daysInMonth(iMonth, iYear) {
+  return 32 - new Date(iYear, iMonth, 32).getDate();
+}
+
+function pad(n) {
+  return (n < 10) ? ("0" + n) : n;
+}
