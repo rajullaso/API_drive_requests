@@ -35,7 +35,7 @@ function getCookie(cname) {
 }
 
 function assign_data_to_fields(arr) {
-  var datos = arr['datos'][1];
+  var datos = arr['datos'][0];
 
   var nombre = datos['nombre'] + ' ' + datos['apellido1'] + ' ' + datos['apellido2'];
   document.getElementById('nombre').innerHTML = nombre;
@@ -228,10 +228,11 @@ function grades_settler(notas) {
   var evaluaciones = notas['evaluaciones'];
   var body = document.getElementById("grades_table");
   body.innerHTML = '';
-  var trimestre1 = evaluaciones[0];
-  for (asignatura = 0; asignatura < trimestre1['asignaturas'].length; asignatura++) {
-    var txt = trimestre1['asignaturas'][asignatura];
-    body.innerHTML += `
+  if (evaluaciones.content != null) {
+    var trimestre1 = evaluaciones[0];
+    for (asignatura = 0; asignatura < trimestre1['asignaturas'].length; asignatura++) {
+      var txt = trimestre1['asignaturas'][asignatura];
+      body.innerHTML += `
 
                 <tr>
                     <td style="color: green; font-weight: bold" scope="row">${trimestre1.nombre}</td>
@@ -239,11 +240,11 @@ function grades_settler(notas) {
                     <td>${txt.nota}</td>
                 </tr>
             `
-  }
-  var trimestre2 = evaluaciones[1];
-  for (asignatura = 0; asignatura < trimestre2['asignaturas'].length; asignatura++) {
-    var txt = trimestre2['asignaturas'][asignatura];
-    body.innerHTML += `
+    }
+    var trimestre2 = evaluaciones[1];
+    for (asignatura = 0; asignatura < trimestre2['asignaturas'].length; asignatura++) {
+      var txt = trimestre2['asignaturas'][asignatura];
+      body.innerHTML += `
 
                 <tr>
                     <td style="color: blue; font-weight: bold" scope="row">${trimestre2.nombre}</td>
@@ -251,11 +252,11 @@ function grades_settler(notas) {
                     <td>${txt.nota}</td>
                 </tr>
             `
-  }
-  var trimestre3 = evaluaciones[2];
-  for (asignatura = 0; asignatura < trimestre3['asignaturas'].length; asignatura++) {
-    var txt = trimestre3['asignaturas'][asignatura];
-    body.innerHTML += `
+    }
+    var trimestre3 = evaluaciones[2];
+    for (asignatura = 0; asignatura < trimestre3['asignaturas'].length; asignatura++) {
+      var txt = trimestre3['asignaturas'][asignatura];
+      body.innerHTML += `
 
                 <tr>
                     <td style="color: orange; font-weight: bold" scope="row">${trimestre3.nombre}</td>
@@ -263,6 +264,7 @@ function grades_settler(notas) {
                     <td>${txt.nota}</td>
                 </tr>
             `
+    }
   }
 }
 
